@@ -1,0 +1,15 @@
+# Ignore environment and secret files
+.env
+*.env
+
+# Ignore generated certs and data
+config/certs/
+config/wazuh_indexer/data/
+config/wazuh_manager/var/
+config/wazuh_dashboard/data/
+
+# Ignore logs
+*.log
+
+# Ignore Docker volumes if any
+volumes/
