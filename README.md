@@ -4,7 +4,7 @@
 
 A single-node SIEM solution powered by [Wazuh](https://wazuh.com/), deployed via Docker. This setup is perfect for local testing, learning, small environments, or kicking off a larger security monitoring project.
 
-> 🔧 Built and tested on **WSL Ubuntu + Docker Compose**.
+> 🔧 Built and tested on **Ubuntu + Docker Compose**.
 
 ---
 
