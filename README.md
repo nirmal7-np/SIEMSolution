@@ -1,7 +1,3 @@
-
-`README.md`
-
-```markdown
 # Wazuh SIEM Docker Deployment
 
 Deploy a powerful SIEM stack using Wazuh, Docker, and Docker Compose — built to run locally on Ubuntu for testing, development, or small-scale production.
