@@ -111,25 +111,3 @@ Made with 💻 by **Nirmal**
 🔗 GitHub: [@nirmal7-np](https://github.com/nirmal7-np)
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License — feel free to use, fork, and build on it!
-```
-
----
-
-## ✅ Next Steps
-
-1. Save the dashboard image as:  
-   `assets/wazuh-dashboard.png`
-
-2. Commit everything:
-
-```bash
-mkdir -p assets
-mv path/to/your/image.png assets/wazuh-dashboard.png
-git add README.md assets/wazuh-dashboard.png
-git commit -m "Custom README and dashboard screenshot added"
-git push
-```
