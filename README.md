@@ -47,14 +47,6 @@ If you're on WSL, open it in a browser on your Windows host using `localhost:560
 
 ---
 
-### 📸 Screenshot
-
-![Wazuh Dashboard](./assets/wazuh-dashboard.png)
-
-This is a live view of the Wazuh SIEM Dashboard — showing endpoint security, threat intelligence, and compliance monitoring all in one place.
-
----
-
 ## 📁 Project Structure
 
 ```
