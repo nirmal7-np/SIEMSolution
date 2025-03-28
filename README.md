@@ -1,75 +1,72 @@
-## 📄 `README.md`
 
-# 🛡️ Wazuh SIEM - Single Node Docker Deployment
+`README.md`
 
-A single-node SIEM solution powered by [Wazuh](https://wazuh.com/), deployed via Docker. This setup is perfect for local testing, learning, small environments, or kicking off a larger security monitoring project.
+```markdown
+# Wazuh SIEM Docker Deployment
 
-> 🔧 Built and tested on **Ubuntu + Docker Compose**.
-
----
-
-## 📦 Stack Overview
-
-This Docker-based deployment includes:
-
-- **Wazuh Manager** - Core component for log collection, analysis, and alerting
-- **Wazuh Indexer (OpenSearch)** - Stores and indexes security events
-- **Wazuh Dashboard** - Web UI for visualization and management
-- **Filebeat** - For internal data forwarding
-- **Docker Compose** - Orchestrates all containers
+Deploy a powerful SIEM stack using Wazuh, Docker, and Docker Compose — built to run locally on Ubuntu for testing, development, or small-scale production.
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Setup Locally in Ubuntu (with Docker Compose)
 
-### 1. Clone this repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/nirmal7-np/SIEMSolution.git
 cd SIEMSolution/single-node
 ```
 
-### 2. Generate Indexer Certificates
+---
 
-Before starting, generate the required certs:
+### Step 2: Generate Certificates for the Indexer
 
 ```bash
 docker compose -f generate-indexer-certs.yml run --rm generator
 ```
 
-This will create certificates inside `config/certs/`.
+This will create necessary SSL certificates under `config/certs/`.
 
-### 3. Start the Wazuh Stack
+---
+
+### Step 3: Start the Wazuh Stack
 
 ```bash
 docker compose up -d
 ```
 
-> 🕒 First-time startup may take a few minutes.
+> This brings up Wazuh Manager, Dashboard, Indexer (OpenSearch), and Filebeat containers.
 
 ---
 
-## 🌐 Access the Dashboard
+## 🖥️ Wazuh Dashboard
 
-Once up and running, access the dashboard at:
+Once running, access the Wazuh Dashboard here:
 
-🔗 [https://localhost:5601](https://localhost:5601)
+- 🔗 [https://localhost:5601](https://localhost:5601)
+- 🧑‍💻 **Username**: `admin`
+- 🔐 **Password**: `SecretPassword` *(or check your dashboard config)*
 
-- **Username**: `admin`
-- **Password**: `SecretPassword` (default — can be changed in `config/wazuh_dashboard/config/wazuh.yml`)
-
-> ⚠️ If using WSL, use your **Windows IP or localhost:5601** depending on port binding.
+If you're on WSL, open it in a browser on your Windows host using `localhost:5601`.
 
 ---
 
-## 🛠️ File Structure
+### 📸 Screenshot
+
+![Wazuh Dashboard](./assets/wazuh-dashboard.png)
+
+This is a live view of the Wazuh SIEM Dashboard — showing endpoint security, threat intelligence, and compliance monitoring all in one place.
+
+---
+
+## 📁 Project Structure
 
 ```
 single-node/
 ├── config/
+│   ├── wazuh_dashboard/
 │   ├── wazuh_indexer/
 │   ├── wazuh_manager/
-│   ├── wazuh_dashboard/
 │   └── certs/
 ├── docker-compose.yml
 ├── generate-indexer-certs.yml
@@ -78,53 +75,65 @@ single-node/
 
 ---
 
-## 📋 Requirements
+## 📌 Highlights
 
-- Docker
-- Docker Compose
-- WSL (if on Windows)
-- Internet connection for pulling images
+✅ Single-node Wazuh stack  
+✅ Local deployment in under 10 minutes  
+✅ Secure by default with SSL certs  
+✅ Dashboard for logs, alerts, and agents  
+✅ Modular config for future scaling
 
 ---
 
-## 📎 References
+## 🧰 Requirements
 
-- 📚 [Wazuh Docker Deployment Docs](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html)
-- 🌐 [Official Wazuh Site](https://wazuh.com/)
+- Ubuntu (native or WSL)
+- Docker
+- Docker Compose
+- Internet connection (to pull images)
 
 ---
 
 ## 🔒 Security Notes
 
-- Default credentials should be changed in production.
-- SSL certificates are self-signed by default.
-- Only exposed locally (change `docker-compose.yml` if deploying externally).
+- Change the default login credentials before using in production.
+- Certs are self-signed — use trusted certs for live environments.
+- Network ports are exposed locally — review `docker-compose.yml` before exposing externally.
 
 ---
 
-## 🙌 Credits
+## 📚 References
 
-Thanks to the [Wazuh Team](https://github.com/wazuh) for providing the containerized solution.
-
----
-
-## 📢 Author
-
-👤 **Nirmal**  
-📬 GitHub: [@nirmal7-np](https://github.com/nirmal7-np)
+- [Wazuh Docker Documentation](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html)
+- [Wazuh Manager](https://documentation.wazuh.com/current/user-manual/index.html)
 
 ---
 
-## 📌 License
+## 👨‍💻 Maintainer
 
-This project is released under the [MIT License](../LICENSE).
+Made with 💻 by **Nirmal**  
+🔗 GitHub: [@nirmal7-np](https://github.com/nirmal7-np)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — feel free to use, fork, and build on it!
 ```
 
 ---
 
-Let me know if you want to add:
-- Screenshots of the dashboard
-- Custom tweaks you made
-- How to add agents
+## ✅ Next Steps
 
-Or I can turn this into a stylish Markdown doc with icons and badges too 💅
+1. Save the dashboard image as:  
+   `assets/wazuh-dashboard.png`
+
+2. Commit everything:
+
+```bash
+mkdir -p assets
+mv path/to/your/image.png assets/wazuh-dashboard.png
+git add README.md assets/wazuh-dashboard.png
+git commit -m "Custom README and dashboard screenshot added"
+git push
+```
