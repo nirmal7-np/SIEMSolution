@@ -39,7 +39,7 @@ docker compose up -d
 
 Once running, access the Wazuh Dashboard here:
 
-- 🔗 [https://localhost:5601](https://localhost:5601)
+- 🔗 [https://localhost:5601](https://localhost)
 - 🧑‍💻 **Username**: `admin`
 - 🔐 **Password**: `SecretPassword` *(or check your dashboard config)*
 
